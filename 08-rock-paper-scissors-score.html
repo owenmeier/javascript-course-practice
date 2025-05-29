@@ -10,7 +10,7 @@
     <button onclick="game('Scissors', pickComputerMove())">Scissors</button>
     <button onclick="resetScore()">Reset Score</button>
     <script>
-      const score = {
+      let score = JSON.parse(localStorage.getItem("score")) || {
         playerWins: 0,
         playerLosses: 0,
         playerTies: 0,
@@ -58,6 +58,7 @@
             `Computer wins! \nNew score: ${score.playerWins} wins, ${score.playerLosses} losses, ${score.playerTies} ties.`
           );
         }
+        localStorage.setItem("score", JSON.stringify(score));
       }
     </script>
   </body>
